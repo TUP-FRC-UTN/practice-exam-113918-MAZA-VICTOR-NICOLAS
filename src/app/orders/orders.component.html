@@ -1,0 +1,33 @@
+<div class="container">
+    <input type="text" class="form-control" id="filter-text-box" placeholder="Buscar" (input)="filterTable($event)" />
+    <span class="input-group-text" id="search-icon">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Codigo</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Cantidad productos</th>
+                    <th scope="col">Fecha compra</th>
+                    <th scope="col">Total Pedido</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of orders; track $index) {
+
+                <tr>
+                    <th scope="row">{{item.id}}</th>
+                    <td>{{item.customerName}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.products.length}} items</td>
+                    <td>{{item.timestamp | date}}</td>
+                    <td>{{item.total | currency}}</td>
+                </tr>
+
+                }
+
+
+            </tbody>
+        </table>
+    </span>
+</div>
